@@ -6,14 +6,14 @@ import hello.core.member.MemberService;
 import hello.core.member.MemberServiceImpl;
 import hello.core.order.Order;
 import hello.core.order.OrderService;
-import hello.core.order.OrderServieImpl;
+import hello.core.order.OrderServiceImpl;
 
 public class OrderApp {
 
 
     public static void main(String[] args) {
         MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServieImpl();
+        OrderService orderService = new OrderServiceImpl();
 
         Long memberId = 1L;
         Member member = new Member(memberId, "memberA", Grade.VIP);
