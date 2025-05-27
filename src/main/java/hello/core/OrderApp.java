@@ -1,8 +1,8 @@
 package hello.core;
 
-import hello.core.discount.order.Order;
-import hello.core.discount.order.OrderService;
-import hello.core.discount.order.OrderServiceImpl;
+import hello.core.order.Order;
+import hello.core.order.OrderService;
+import hello.core.order.OrderServiceImpl;
 import hello.core.member.Grade;
 import hello.core.member.Member;
 import hello.core.member.MemberService;
@@ -11,8 +11,10 @@ import hello.core.member.MemberServiceImpl;
 public class OrderApp {
 
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
+        AppConfig appConfig = new AppConfig();
+
+        MemberService memberService = appConfig.memberService();
+        OrderService orderService = appConfig.orderService();
 
         Long memberId = 1L;
         Member member = new Member(memberId, "memberA", Grade.VIP);
@@ -20,6 +22,6 @@ public class OrderApp {
 
         Order order = orderService.createOrder(memberId, "itemA", 10000);
         System.out.println("주문내역 : " + order);
-        System.out.println("할인 가격 : " + order.calculatePrice());
+        System.out.println("할인된 가격 : " + order.calculatePrice());
     }
 }
