@@ -19,7 +19,7 @@ public class AppConfig {
         // 생성자 주입
         return new MemberServiceImpl(memberRepository());
     }
-    @Bean(name = "빈 테스트")
+    @Bean
     public  MemberRepository memberRepository() {
         return new MemoryMemberRepository();
     }
