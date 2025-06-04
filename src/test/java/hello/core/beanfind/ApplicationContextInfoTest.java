@@ -1,6 +1,7 @@
 package hello.core.beanfind;
 
 import hello.core.AppConfig;
+import hello.core.member.MemberService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -23,7 +24,7 @@ class ApplicationContextInfoTest {
     @Test
     @DisplayName("특정 빈 출력하기")
     void findBean(){
-        Object memberService = ac.getBean("빈 테스트");
+        Object memberService = ac.getBean("memberService" , MemberService.class);
         System.out.println("bean = " + memberService );
 
     }
